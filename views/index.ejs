@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+<div class="col-6">
+  <h2>ADD TASK</h2>
+  <form action="/add" method="POST">
+    <input type="text" name="newTask" placeholder="Name of Task" required />
+    <button type="submit">+ ADD</button>
+  </form>
+</div>
+<div class="col-6">
+  <form action="/removetask" method="post">
+    <h2>Added Task</h2>
+    <% for( var i = 0; i < list.length; i++){ %>
+    <li>
+      <input type="checkbox" name="check" value="<%= list[i] %>" /> <%= list[i]
+      %>
+    </li>
+    <% } %>
+    <button type="submit">Completed</button>
+  </form>
+</div>
+
+<div>
+  <h2>Completed task</h2>
+  <% for(var i = 0; i < complete.length; i++){ %>
+  <li><input type="checkbox" checked /><%= complete[i] %></li>
+  <% } %>
+</div>
+<%- include("partials/footer.ejs") %>
